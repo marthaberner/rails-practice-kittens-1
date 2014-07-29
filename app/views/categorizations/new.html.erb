@@ -1,6 +1,6 @@
 <%= form_for [:kitten, @categorization] do |f| %>
-  <% if @categorization.errors.any? %>
-    <h3>Category has already been taken</h3>
+  <% @categorization.errors.full_messages.each do |message| %>
+    <%= message %>
   <% end %>
   <%= f.collection_select :category_id, Category.order(:name), :id, :name, {prompt: true} %>
   <%= f.submit "Add Category" %>
