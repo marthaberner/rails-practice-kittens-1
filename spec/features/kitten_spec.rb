@@ -20,6 +20,7 @@ feature 'Kittens' do
     end
   end
 
+
   def login(user)
     visit root_path
     click_on "Login"

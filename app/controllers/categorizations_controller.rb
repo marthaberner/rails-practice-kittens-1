@@ -6,8 +6,11 @@ class CategorizationsController < ApplicationController
 
   def create
     @categorization = Categorization.new(kitten_params)
-    @categorization.save
-    redirect_to root_path
+    if @categorization.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   private

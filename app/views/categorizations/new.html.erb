@@ -1,5 +1,7 @@
 <%= form_for [:kitten, @categorization] do |f| %>
-
+  <% f.object.errors.full_messages.each do |error| %>
+    <%= error %>
+  <% end %>
   <%= f.collection_select :category_id, Category.order(:name), :id, :name, {prompt: true} %>
   <%= f.submit "Add Category" %>
 <% end %>
